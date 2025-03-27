@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: url('https://hardgainsdotin.wordpress.com/wp-content/uploads/2020/08/pexels-photo-841130.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            filter: grayscale(100%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GYM SHOP</h1>
+        <button class="cart-button">🛒 Cart</button>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Dumbbells</h2>
+            <p>High-quality adjustable dumbbells</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="card">
+            <h2>Weight Plates</h2>
+            <p>Durable rubber-coated plates</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="card">
+            <h2>Gym Apparel</h2>
+            <p>Comfortable and stylish gym wear</p>
+            <button>Buy Now</button>
+        </div>
+    </main>
+    
+    <section class="game-section">
+        <h2>Catch the Protein!</h2>
+        <button class="start-game-btn" onclick="toggleGame()">Play Game</button>
+        <div id="game-container" style="display: none;">
+            <canvas id="myCanvas" width="600" height="600"></canvas>
+        </div>
+    </section>
+
+    <script>
+        function toggleGame() {
+            var gameContainer = document.getElementById("game-container");
+            var button = document.querySelector(".start-game-btn");
+
+            if (gameContainer.style.display === "none") {
+                gameContainer.style.display = "block";
+                button.textContent = "Hide Game";
+            } else {
+                gameContainer.style.display = "none";
+                button.textContent = "Play Game";
+            }
+        }
+
+        var ctx = myCanvas.getContext("2d");
+
+        function MyKeyDownHandler(MyEvent) {
+            if (MyEvent.keyCode == 37 && arm_x > 0) { arm_x -= 10; }
+            if (MyEvent.keyCode == 39 && arm_x + ArmImg.width < myCanvas.width) { arm_x += 10; }
+        }
+
+        addEventListener("keydown", MyKeyDownHandler);
+
+        var arm_x = 0;
+        var arm_y = 0;
+        var ArmImg = new Image();
+        ArmImg.src = "https://img.icons8.com/?size=100&id=FBL0HZDWJ06G&format=png&color=000000";
+
+        var protein_x = 0;
+        var protein_y = 0;
+        var ProteinImg = new Image();
+        ProteinImg.src = "https://img.icons8.com/?size=100&id=97440&format=png&color=000000";
+
+        var score = 0;
+        var time_remaining = 30;
+
+        function ImagesTouching(x1, y1, img1, x2, y2, img2) {
+            if (x1 >= x2 + img2.width || x1 + img1.width <= x2) return false;
+            if (y1 >= y2 + img2.height || y1 + img1.height <= y2) return false;
+            return true;
+        }
+
+        function Do_a_Frame() {
+            ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
+            ctx.fillStyle = "yellow";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 30);
+            ctx.fillText("Time Remaining: " + Math.round(time_remaining), 10, 50);
+
+            arm_y = myCanvas.height - ArmImg.height;
+            ctx.drawImage(ArmImg, arm_x, arm_y);
+
+            if (time_remaining <= 0) {
+                ctx.fillStyle = "red";
+                ctx.font = "bold 50px Arial";
+                ctx.textAlign = "center";
+                ctx.fillText("Game Over", myCanvas.width / 2, myCanvas.height / 2);
+                ctx.textAlign = "left";
+            } else {
+                time_remaining -= 1 / 40;
+                protein_y += 3;
+                if (protein_y > myCanvas.height) {
+                    protein_y = 0;
+                    protein_x = Math.random() * (myCanvas.width - ProteinImg.width);
+                }
+            }
+
+            ctx.drawImage(ProteinImg, protein_x, protein_y);
+
+            if (ImagesTouching(arm_x, arm_y, ArmImg, protein_x, protein_y, ProteinImg)) {
+                score++;
+                protein_x = -ProteinImg.width;
+            }
+        }
+
+        setInterval(Do_a_Frame, 15);
+    </script>
+</body>
+</html>
+
