@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym VEIKALS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>GYM VEIKALS</h1>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Hanteles</h2>
+            <p>Augstas kvalitātes regulējamas hanteles</p>
+            <button onclick="showProduct('hanteles')">Pirkt tūlīt</button>
+        </div>
+        <div class="card">
+            <h2>Svaru diski</h2>
+            <p>Izturīgi, ar gumiju pārklāti diski</p>
+            <button onclick="showProduct('diski')">Pirkt tūlīt</button>
+        </div>
+        <div class="card">
+            <h2>Sporta apģērbs</h2>
+            <p>Ērts un stilīgs apģērbs treniņiem</p>
+            <button onclick="showProduct('apgerbs')">Pirkt tūlīt</button>
+        </div>
+    </main>
+
+    <section id="product-display" class="product-gallery">
+        <div id="hanteles" class="product" style="display: none;">
+            <img src="https://via.placeholder.com/200x200?text=Hantele" alt="Hantele">
+            <h3>Regulējama hantele</h3>
+            <p>Cena: 25€</p>
+        </div>
+        <div id="diski" class="product" style="display: none;">
+            <img src="https://via.placeholder.com/200x200?text=Disks" alt="Svaru disks">
+            <h3>Svara diski 5kg</h3>
+            <p>Cena: 15€</p>
+        </div>
+        <div id="apgerbs" class="product" style="display: none;">
+            <img src="https://via.placeholder.com/200x200?text=Apģērbs" alt="Sporta apģērbs">
+            <h3>Treniņapģērbs</h3>
+            <p>Cena: 30€</p>
+        </div>
+    </section>
+
+    <section class="game-section">
+        <h2>Ķer proteīnu!</h2>
+        <button class="start-game-btn" onclick="toggleGame()">Spēlēt spēli</button>
+        <div id="game-container" style="display: none;">
+            <canvas id="myCanvas" width="600" height="600"></canvas>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

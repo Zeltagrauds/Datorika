@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('https://hardgainsdotin.wordpress.com/wp-content/uploads/2020/08/pexels-photo-841130.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fdd835;
+  }
+  
+  header {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 3em;
+    color: #fdd835;
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .card {
+    background-color: #212121;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+  }
+  
+  .card button {
+    margin-top: 10px;
+    background-color: #fdd835;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .product-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .product {
+    margin: 10px;
+    text-align: center;
+    color: white;
+  }
+  
+  .product img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+  }
+  
+  .game-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+  
+  .start-game-btn {
+    background-color: #fdd835;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  #myCanvas {
+    border: 2px solid #fdd835;
+    background-color: white;
+  }
+  
+  
